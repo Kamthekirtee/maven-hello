@@ -28,8 +28,8 @@ pipeline {
           steps {
              
             sh "mvn clean package"
-            sh "docker build -t devopsartifactory1.jfrog.io/simple ."
-            sh "docker push devopsartifactory1.jfrog.io/simple"
+            sh "docker build -t devopsartifactory1.jfrog.io/docker-local ."
+            sh "docker push devopsartifactory1.jfrog.io/docker-local"
           }
           post {
               success {

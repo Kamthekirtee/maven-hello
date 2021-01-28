@@ -1,7 +1,10 @@
 pipeline {
    agent any
-
+script {
+       cleanWs()
+       }
    tools {
+   
       // Install the Maven version configured as "M3" and add it to the path.
       maven "M3"
    }
@@ -25,7 +28,7 @@ pipeline {
       stage("Deploy") {
           steps {
              
-            sh "clean package"
+            sh "mvn clean package"
             
           }
           post {

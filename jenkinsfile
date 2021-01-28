@@ -5,6 +5,7 @@ pipeline {
    
       // Install the Maven version configured as "M3" and add it to the path.
       maven "M3"
+      
    }
 
    stages {
@@ -27,7 +28,8 @@ pipeline {
           steps {
              
             sh "mvn clean package"
-            
+            sh "docker build -t devopsartifactory1.jfrog.io/simple ."
+            sh "docker push devopsartifactory1.jfrog.io/simple"
           }
           post {
               success {

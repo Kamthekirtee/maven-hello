@@ -9,10 +9,11 @@ pipeline {
    }
 
    stages {
-      stage('Build') {
+      stage('Clone and Build') {
          steps {
-            // Get some code from a GitHub repository 
-            //git 'https://github.com/jglick/simple-maven-project-with-tests.git'
+         script{
+           git credentialsId: 'Kirtee-github-private-key', url:'git@github.com:Kamthekirtee/maven-hello-world.git'
+           }
             sh "mvn clean compile"
          }
          }
